@@ -1,0 +1,148 @@
+[init]
+  defaultBranch = main
+
+[user]
+  name = thientran
+  email = thien.y.tran@sjsu.edu
+
+[core]
+  editor = nvim
+  untrackedCache = true
+  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+  trustctime = false
+  precomposeunicode = false
+
+[push]
+  default = simple
+  autoSetupRemote = true
+
+[pull]
+  rebase = true
+
+[fetch]
+  prune = true
+
+[status]
+  submoduleSummary = true
+
+[rerere]
+	enabled = 1
+
+[diff]
+  mnemonicprefix = true
+  tool = nvimdiff
+	renames = copies
+
+[difftool]
+  prompt = false
+
+[diff "bin"]
+	textconv = hexdump -v -C
+
+[help]
+	autocorrect = 1
+
+[branch]
+  autosetuprebase = always
+
+[apply]
+  whitespace = fix
+
+[mergetool]
+  keepBackup = false
+
+[rebase]
+	autosquash = true
+
+[alias]
+  # pull
+  pl = pull origin main
+  plms = pull origin master
+  plh = pull origin HEAD
+  
+  # checkout
+  co = checkout
+  cob = checkout -b
+  com = checkout main
+  coms = checkout master
+  coo = !git fetch && git checkout
+
+  # merge
+  m = merge
+  mm = merge main
+  mms = merge master
+
+  # add & commit
+  a = add
+  aa = add -A .
+  aav = add --all --verbose
+  cm = commit -m
+  acm = !git add -A . && git commit -m
+  amended = commit --amend --no-edit
+  amend = commit --amend
+  fix = commit --fixup
+
+  # push
+  p = push
+  po = push origin
+  pom = push origin main
+  poms = push origin master
+  pf = push --force
+  pt = push --tags
+  
+  # branch
+  br = branch
+  brd = branch -d
+  brD = branch -D
+  
+  # status
+  st = status
+  ss = status -s
+  sa = status -uall
+  sas = status -uall -s
+  sc = diff --name-only --diff-filter=U
+
+  # log
+  l = log
+  ln = log -n
+  ol = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d%x09% %Creset%s' --date=short
+  lp = ol -p
+  ll = ol --stat
+
+  # reset
+  r = reset
+  rs = reset --soft HEAD^
+  rh = reset --hard HEAD^
+  
+  # rebase
+  rb = rebase
+  rbm = rebase main
+  rbms = rebase master
+  rbi = rebase --interactive
+  rbc = rebase --continue
+  rba = rebase --abort
+  rbmi = rebase main --interactive
+  rbmsi = rebase master --interactive
+
+  # fetch
+  f = fetch
+  fo = fetch origin
+
+  # count
+  count = rev-list --count HEAD ^main
+
+  # diff
+  d = diff
+  dl = diff --cached HEAD^
+  dt = difftool
+
+  # subtree
+  str = subtree
+  stra = subtree add
+  strl = subtree pull
+  strp = subtree push
+
+  # worktree
+  wt = worktree
+  wta = worktree add
+  wtr = worktree remove
